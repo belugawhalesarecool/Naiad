@@ -155,8 +155,22 @@ footer { font: 400 12px var(--mono); color: var(--muted); }
 .tabs a.tab:hover { color: var(--ink); }
 .tabs a.tab[aria-current="page"] { color: var(--accent-ink); }
 .tabs a:focus-visible { outline: 2px solid var(--river); outline-offset: 2px; }
-.view { display: grid; gap: 22px; scroll-margin-top: 64px; }
-.view + .view { border-top: 2px solid var(--line); padding-top: 40px; margin-top: 28px; }
+.view { display: flex; flex-direction: column; gap: 22px; scroll-margin-top: 64px; scroll-snap-align: start;
+  min-height: calc(100svh - 64px); }   /* every section fills at least a screen, so each reads as its own page */
+.view + .view { padding-top: 44px; }
+/* gentle pull toward the start of a section when you scroll close to it; long sections still scroll freely */
+html { scroll-snap-type: y proximity; }
+@media (prefers-reduced-motion: reduce) { html { scroll-snap-type: none; } }
+/* the band that closes each page: full width, page number on the left, the next page on the right */
+.page-end { margin-top: auto; padding: 26px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+  background: var(--panel); border-block: 1px solid var(--line);
+  box-shadow: 0 0 0 100vmax var(--panel); clip-path: inset(0 -100vmax); }
+.page-end .num { font: 500 13px/1 var(--mono); color: var(--muted); letter-spacing: .04em; }
+.page-end a { font: 700 clamp(24px, 4vw, 34px)/1.1 var(--display); color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+.page-end a span { color: var(--river); transition: transform .2s; }
+.page-end a:hover span { transform: translateY(3px); }
+.page-end a.top:hover span { transform: translateY(-3px); }
+
 .view[hidden] { display: none; }
 
 /* research + about */
@@ -274,6 +288,7 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
   </section>
 
   <footer>model exported from the naiad fusion cad on nov 20, 2026 · entered in the north jersey stem fair 2027</footer>
+  <div class="page-end"><span class="num">01 / 04 · naiad</span><a class="next-page" href="#research">next: research <span aria-hidden="true">↓</span></a></div>
 </div>
 
 <div class="view" id="v-research">
@@ -367,6 +382,7 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
       </ul>
     </div>
   </section>
+  <div class="page-end"><span class="num">02 / 04 · research</span><a class="next-page" href="#log">next: build log <span aria-hidden="true">↓</span></a></div>
 </div>
 
 <div class="view" id="v-log">
@@ -438,6 +454,7 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
       </div>
     </li>
   </ol>
+  <div class="page-end"><span class="num">03 / 04 · build log</span><a class="next-page" href="#about">next: about <span aria-hidden="true">↓</span></a></div>
 </div>
 
 <div class="view" id="v-about">
@@ -470,6 +487,7 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
     </div>
   </section>
 
+  <div class="page-end"><span class="num">04 / 04 · about</span><a class="next-page top" href="#naiad">back to the boat <span aria-hidden="true">↑</span></a></div>
   <footer>made by jase villaverde · project agos · 2026</footer>
 </div>
 
@@ -537,7 +555,7 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
     if (v === 'naiad') window.scrollTo({ top: 0, behavior: smooth && !still.matches ? 'smooth' : 'auto' });
     else s.scrollIntoView({ behavior: smooth && !still.matches ? 'smooth' : 'auto', block: 'start' });
   }
-  document.querySelectorAll('.tabs a').forEach(a => a.addEventListener('click', e => {
+  document.querySelectorAll('.tabs a, a.next-page').forEach(a => a.addEventListener('click', e => {
     const v = a.getAttribute('href').slice(1);
     if (!views.includes(v)) return;
     e.preventDefault();
