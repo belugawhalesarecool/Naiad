@@ -3,9 +3,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>NAIAD</title>
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png?v=2" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-16.png?v=2" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -145,8 +146,9 @@ footer { font: 400 12px var(--mono); color: var(--muted); }
   background: var(--accent); opacity: 0;
   box-shadow: 0 1px 2px rgba(20, 16, 0, .18), 0 4px 12px -2px rgba(20, 16, 0, .28);
 }
-.tabs .mark { font: 700 20px/1 var(--display); margin-right: auto; color: var(--ink); text-decoration: none; text-transform: lowercase; }
-.tabs .mark span { color: var(--river); }
+.tabs .mark { margin-right: auto; width: 153px; height: 24px; flex: 0 0 auto; background: var(--ink);   /* the project agos wordmark, tinted to the text color so it follows light and dark */
+  -webkit-mask: url(img/agos-wordmark.png) left center / contain no-repeat; mask: url(img/agos-wordmark.png) left center / contain no-repeat; }
+.tabs .mark:hover { background: var(--river); }
 .tabs a.tab {
   font: 600 16px var(--display); letter-spacing: .02em; text-transform: lowercase; text-decoration: none;
   color: var(--muted); padding: 6px 12px 5px; border-radius: 999px; position: relative; z-index: 1;
@@ -158,8 +160,9 @@ footer { font: 400 12px var(--mono); color: var(--muted); }
 .view { display: flex; flex-direction: column; gap: 22px; scroll-margin-top: 64px; scroll-snap-align: start;
   min-height: calc(100svh - 64px); }   /* every section fills at least a screen, so each reads as its own page */
 .view + .view { padding-top: 44px; }
-/* gentle pull toward the start of a section when you scroll close to it; long sections still scroll freely */
-html { scroll-snap-type: y proximity; }
+/* every scroll settles on a section start. a section taller than the screen still scrolls freely inside, since the
+   browser counts any spot within a snap area bigger than the screen as a resting point, so nothing gets trapped */
+html { scroll-snap-type: y mandatory; }
 @media (prefers-reduced-motion: reduce) { html { scroll-snap-type: none; } }
 /* the band that closes each page: full width, page number on the left, the next page on the right */
 .page-end { margin-top: auto; padding: 26px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
@@ -229,7 +232,7 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
 
 <div class="wrap">
   <nav class="tabs" aria-label="pages">
-    <a class="mark" href="#naiad">naiad<span>.</span></a>
+    <a class="mark" href="#naiad" aria-label="project agos, back to the top"></a>
     <a class="tab" href="#naiad" data-view="naiad">naiad</a>
     <a class="tab" href="#research" data-view="research">research</a>
     <a class="tab" href="#log" data-view="log">build log</a>
