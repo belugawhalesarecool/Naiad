@@ -157,13 +157,10 @@ footer { font: 400 12px var(--mono); color: var(--muted); }
 .tabs a.tab:hover { color: var(--ink); }
 .tabs a.tab[aria-current="page"] { color: var(--accent-ink); }
 .tabs a:focus-visible { outline: 2px solid var(--river); outline-offset: 2px; }
-.view { display: flex; flex-direction: column; gap: 22px; scroll-margin-top: 64px; scroll-snap-align: start;
-  min-height: calc(100svh - 64px); }   /* every section fills at least a screen, so each reads as its own page */
+.view { display: flex; flex-direction: column; gap: 22px;
+  min-height: calc(100svh - 64px); }   /* every page fills at least a screen */
 .view + .view { padding-top: 44px; }
-/* every scroll settles on a section start. a section taller than the screen still scrolls freely inside, since the
-   browser counts any spot within a snap area bigger than the screen as a resting point, so nothing gets trapped */
-html { scroll-snap-type: y mandatory; }
-@media (prefers-reduced-motion: reduce) { html { scroll-snap-type: none; } }
+
 /* the band that closes each page: full width, page number on the left, the next page on the right */
 .page-end { margin-top: auto; padding: 26px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
   background: var(--panel); border-block: 1px solid var(--line);
@@ -244,7 +241,7 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
   <header>
     <div class="eyebrow">project agos · autonomous surface vehicle</div>
     <h1>naiad<span>.</span></h1>
-    <p class="lede">a small catamaran that drives itself upstream toward dirtier water until it finds the pipe or ditch the pollution is coming from, then logs the spot with gps, photos and sensor readings.</p>
+    <p class="lede">A small catamaran that drives itself upstream toward dirtier water until it finds the pipe or ditch the pollution is coming from, then logs the spot with GPS, photos and sensor readings.</p>
   </header>
 
   <section>
@@ -298,22 +295,22 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
   <header>
     <div class="eyebrow">research plan · north jersey stem fair 2027</div>
     <h1>research<span>.</span></h1>
-    <p class="lede">this is the plan behind naiad that i wrote for the fair. the goal is to find where pollution gets into a river and hand that exact spot to the people who can fix it.</p>
+    <p class="lede">This is the plan behind NAIAD that I wrote for the fair. The goal is to find where pollution gets into a river and hand that exact spot to the people who can fix it.</p>
   </header>
 
   <section class="page-sec">
     <h2>the problem</h2>
     <div class="prose">
-      <p>most river pollution comes in through the same pipes and outfalls over and over. cleanups pull trash out downstream after it has already spread, and the source keeps going. finding the exact source takes slow manual surveys, so it barely ever happens.</p>
-      <p>if a boat can trace the pollution back on its own and log the spot with gps, photos and readings, the town or njdep gets the evidence they need to put in a trash trap or enforce discharge rules at that outfall.</p>
+      <p>Most river pollution comes in through the same pipes and outfalls over and over. Cleanups pull trash out downstream after it has already spread, and the source keeps going. Finding the exact source takes slow manual surveys, so it barely ever happens.</p>
+      <p>If a boat can trace the pollution back on its own and log the spot with GPS, photos and readings, the town or NJDEP gets the evidence they need to put in a trash trap or enforce discharge rules at that outfall.</p>
     </div>
   </section>
 
   <section class="page-sec">
     <h2>the question</h2>
     <div class="prose">
-      <p class="q">can a boat that follows the pollution upstream find its source faster and more often than one that sweeps back and forth?</p>
-      <p>the idea comes from salmon, which smell their way back to the stream they were born in <span class="cite">(dittman &amp; quinn, 1996)</span>. my hypothesis is that if naiad steers toward stronger readings the same way, it will find sources in less time and with a higher success rate than a fixed sweep.</p>
+      <p class="q">Can a boat that follows the pollution upstream find its source faster and more often than one that sweeps back and forth?</p>
+      <p>The idea comes from salmon, which smell their way back to the stream they were born in <span class="cite">(Dittman &amp; Quinn, 1996)</span>. My hypothesis is that if NAIAD steers toward stronger readings the same way, it will find sources in less time and with a higher success rate than a fixed sweep.</p>
     </div>
   </section>
 
@@ -321,12 +318,12 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
     <h2>what it looks for</h2>
     <div class="prose">
       <div class="cards">
-        <div><span class="tag">probes</span><h3>sewage</h3><p>conductivity and turbidity go up while dissolved oxygen drops near an outfall <span class="cite">(brown et al., 2004)</span>.</p></div>
-        <div><span class="tag">probes</span><h3>fertilizer runoff</h3><p>a nitrate probe reads it directly. the algae it feeds also pulls oxygen down and swings the ph.</p></div>
-        <div><span class="tag">camera</span><h3>oil</h3><p>oil floats, so the camera model catches sheens on the surface along with trash.</p></div>
-        <div><span class="tag">probes</span><h3>industrial discharge</h3><p>shows up as sudden, local jumps in ph or conductivity.</p></div>
+        <div><span class="tag">probes</span><h3>sewage</h3><p>Conductivity and turbidity go up while dissolved oxygen drops near an outfall <span class="cite">(Brown et al., 2004)</span>.</p></div>
+        <div><span class="tag">probes</span><h3>fertilizer runoff</h3><p>A nitrate probe reads it directly. The algae it feeds also pulls oxygen down and swings the pH.</p></div>
+        <div><span class="tag">camera</span><h3>oil</h3><p>Oil floats, so the camera model catches sheens on the surface along with trash.</p></div>
+        <div><span class="tag">probes</span><h3>industrial discharge</h3><p>Shows up as sudden, local jumps in pH or conductivity.</p></div>
       </div>
-      <p class="muted">naiad won't name specific chemicals. it flags water that looks off, follows it upstream and marks the spot so officials can take a sample for the lab.</p>
+      <p class="muted">NAIAD won't name specific chemicals. It flags water that looks off, follows it upstream and marks the spot so officials can take a sample for the lab.</p>
     </div>
   </section>
 
@@ -334,11 +331,11 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
     <h2>how it'll work</h2>
     <div class="prose">
       <ol>
-        <li>train a camera model to spot floating trash and oil sheens, using the FloW dataset of floating waste in inland water <span class="cite">(cheng et al., 2021)</span>.</li>
-        <li>write simple rules that steer toward stronger readings, like the moth-inspired plume tracing li et al. ran on an underwater robot <span class="cite">(2006)</span>.</li>
-        <li>stretch goal: train a navigation policy in a simulated river and move it onto the real boat.</li>
+        <li>Train a camera model to spot floating trash and oil sheens, using the FloW dataset of floating waste in inland water <span class="cite">(Cheng et al., 2021)</span>.</li>
+        <li>Write simple rules that steer toward stronger readings, like the moth-inspired plume tracing Li et al. ran on an underwater robot <span class="cite">(2006)</span>.</li>
+        <li>Stretch goal: train a navigation policy in a simulated river and move it onto the real boat.</li>
       </ol>
-      <p>testing starts in a pool with a harmless salt or food dye plume released from a known spot, then moves to the rahway river with an adult there. every run records whether it found the source, how long it took and how well it picked out trash.</p>
+      <p>Testing starts in a pool with a harmless salt or food dye plume released from a known spot, then moves to the Rahway River with an adult there. Every run records whether it found the source, how long it took and how well it picked out trash.</p>
       <div class="figs two">
         <figure><img width="1200" height="633" src="img/sketches.jpg" alt="hand drawn sketches of the boat from the top and side" loading="lazy"><figcaption>my first sketches of the boat</figcaption></figure>
         <figure><img width="1100" height="470" src="img/cad-labels.jpg" alt="early cad render of naiad with every part labeled" loading="lazy"><figcaption>an earlier version of the cad with the parts labeled</figcaption></figure>
@@ -349,26 +346,26 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
   <section class="page-sec">
     <h2>plume tracing</h2>
     <div class="prose">
-      <p>a pipe or runoff ditch leaks water that's different from the river, and the current spreads it into a plume that gets wider and weaker downstream. the boat's job is to find the strong, narrow end. i'm working this part out on sirena, naiad's smaller sister boat, first.</p>
+      <p>A pipe or runoff ditch leaks water that's different from the river, and the current spreads it into a plume that gets wider and weaker downstream. The boat's job is to find the strong, narrow end. I'm working this part out on Sirena, NAIAD's smaller sister boat, first.</p>
       <div class="figs two">
         <figure><img width="333" height="259" src="img/plume-diagram.png" alt="diagram of a plume widening as it travels away from one source" loading="lazy"><figcaption>a plume spreading out from one source (wikimedia commons)</figcaption></figure>
         <figure><img width="960" height="704" src="img/plume-real.jpg" alt="satellite view of muddy river water spreading into the sea in patches" loading="lazy"><figcaption>a real plume from above, patchy instead of a clean cone (wikimedia commons)</figcaption></figure>
       </div>
-      <p>currents break plumes into patches, so the highest reading isn't always closest to the source. in one study the peak was about 70 cm off <span class="cite">(lilienthal et al., 2006)</span>.</p>
-      <p>the main signal is conductivity. sewage and road salt runoff push it up, and the probe reacts in about a second. ph and dissolved oxygen take up to a minute to settle, so those are for confirming once the boat stops near the source.</p>
+      <p>Currents break plumes into patches, so the highest reading isn't always closest to the source. In one study the peak was about 70 cm off <span class="cite">(Lilienthal et al., 2006)</span>.</p>
+      <p>The main signal is conductivity. Sewage and road salt runoff push it up, and the probe reacts in about a second. pH and dissolved oxygen take up to a minute to settle, so those are for confirming once the boat stops near the source.</p>
       <div class="cards">
-        <div><span class="tag">main plan</span><h3>grid</h3><p>drive a back and forth lawnmower path, log conductivity and gps every second, find the strongest spot, then run a smaller grid around it two or three times. one stray patch can't fool it.</p></div>
-        <div><span class="tag">the comparison</span><h3>surge and cast</h3><p>copies how moths follow a scent. reading goes up, drive upstream. lose it, zigzag side to side until you pick it up again. it's faster, but patches throw it off more.</p></div>
+        <div><span class="tag">main plan</span><h3>grid</h3><p>Drive a back and forth lawnmower path, log conductivity and GPS every second, find the strongest spot, then run a smaller grid around it two or three times. One stray patch can't fool it.</p></div>
+        <div><span class="tag">the comparison</span><h3>surge and cast</h3><p>Copies how moths follow a scent. Reading goes up, drive upstream. Lose it, zigzag side to side until you pick it up again. It's faster, but patches throw it off more.</p></div>
       </div>
       <figure><img width="1200" height="800" src="img/grid-path.jpg" alt="a back and forth lawnmower path drawn over water" loading="lazy"><figcaption>the back and forth path the boat would drive (wikimedia commons)</figcaption></figure>
-      <p>for now it's all rules with no ai. the pi reads the probes and sends waypoints to ardupilot, whose pid loops do the steering. if the pi goes quiet for 3 seconds the boat stops, which doubles as a failsafe.</p>
+      <p>For now it's all rules with no AI. The Pi reads the probes and sends waypoints to ArduPilot, whose PID loops do the steering. If the Pi goes quiet for 3 seconds the boat stops, which doubles as a failsafe.</p>
     </div>
   </section>
 
   <section class="page-sec">
     <h2>the map</h2>
     <div class="prose">
-      <p>readings go on a live web map built with leaflet and openstreetmap. the river gets split into short segments, and each one is colored green, yellow or red from a combined pollution score, with thresholds from new jersey's surface water quality standards. trash and sheens show up as pins with photos, and the traced source gets its own marker, so anyone can see where the river is healthy and where the problem starts.</p>
+      <p>Readings go on a live web map built with Leaflet and OpenStreetMap. The river gets split into short segments, and each one is colored green, yellow or red from a combined pollution score, with thresholds from New Jersey's surface water quality standards. Trash and sheens show up as pins with photos, and the traced source gets its own marker, so anyone can see where the river is healthy and where the problem starts.</p>
     </div>
   </section>
 
@@ -392,7 +389,7 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
   <header>
     <div class="eyebrow">build log · apr 2026 to now</div>
     <h1>build log<span>.</span></h1>
-    <p class="lede">how naiad got from a concept sheet to a full cad model, one work session at a time. newest is at the bottom.</p>
+    <p class="lede">How NAIAD got from a concept sheet to a full CAD model, one work session at a time. Newest is at the bottom.</p>
   </header>
 
   <ol class="log">
@@ -400,14 +397,14 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
       <time>apr 7, 2026</time>
       <div class="prose">
         <h2>the first plan</h2>
-        <p>drafted the concept under project agos: what the boat does, the hardware and software, funding ideas and a name. naiad won. the open questions were lora or wifi, and a printed hull or an off the shelf pontoon.</p>
+        <p>Drafted the concept under Project Agos: what the boat does, the hardware and software, funding ideas and a name. NAIAD won. The open questions were LoRa or Wi-Fi, and a printed hull or an off the shelf pontoon.</p>
       </div>
     </li>
     <li>
       <time>spring to summer 2026</time>
       <div class="prose">
         <h2>first hull prototype</h2>
-        <p>researched a union county waterway boat for collecting data, had a cad day in fusion and printed a hull prototype in segments small enough for the 180 mm bed on my a1 mini. then i ordered epoxy to waterproof it.</p>
+        <p>Researched a Union County waterway boat for collecting data, had a CAD day in Fusion and printed a hull prototype in segments small enough for the 180 mm bed on my A1 mini. Then I ordered epoxy to waterproof it.</p>
         <figure><img width="1400" height="933" src="img/log-hull.jpg" alt="two red 3d printed hull segments, one standing up and one lying on its side with a tapered bow" loading="lazy"><figcaption>two segments of the first hull prototype</figcaption></figure>
       </div>
     </li>
@@ -415,7 +412,7 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
       <time>aug 11, 2026</time>
       <div class="prose">
         <h2>epoxy day</h2>
-        <p>brushed a coat of fast cure epoxy over the printed hull to seal the layer lines and the seams between segments, then left it in the garage to cure.</p>
+        <p>Brushed a coat of fast cure epoxy over the printed hull to seal the layer lines and the seams between segments, then left it in the garage to cure.</p>
         <figure><img width="1400" height="933" src="img/log-epoxy.jpg" alt="red 3d printed hull segment drying on a board next to epoxy resin and hardener bottles" loading="lazy"><figcaption>the hull prototype right after its epoxy coat</figcaption></figure>
       </div>
     </li>
@@ -423,7 +420,7 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
       <time>nov 2026</time>
       <div class="prose">
         <h2>naiad v2 in cad</h2>
-        <p>got the basic layout designed in fusion: two hulls, the skeleton between them, a clear lid drybox on the deck and two thrusters at the back.</p>
+        <p>Got the basic layout designed in Fusion: two hulls, the skeleton between them, a clear lid drybox on the deck and two thrusters at the back.</p>
         <figure><img width="1400" height="833" src="img/log-cad-v2.jpg" alt="fusion screenshot of a red twin hull catamaran with a drybox and two yellow thrusters" loading="lazy"><figcaption>naiad v2 with hulls, thrusters, drybox and skeleton</figcaption></figure>
       </div>
     </li>
@@ -431,29 +428,29 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
       <time>nov 16 to 17, 2026</time>
       <div class="prose">
         <h2>signing up for the fair</h2>
-        <p>my tsa advisor checked with the north jersey stem fair about registration, and i started the research plan.</p>
+        <p>My TSA advisor checked with the North Jersey STEM Fair about registration, and I started the research plan.</p>
       </div>
     </li>
     <li>
       <time>nov 20, 2026</time>
       <div class="prose">
         <h2>cad cleanup</h2>
-        <p>split the model into an assembly plus five subsystem files (hull, structure, propulsion, electronics, sensors) and ran a cad check. it found two broken features and a bunch of wires floating in the air inside the drybox. fixed the features, then rerouted every wire along the walls, tray and deck with tie mounts.</p>
-        <p>the check now comes back clean. the boat comes out around 5.2 kg with 25.3 mm of freeboard, and every printed part fits the printer.</p>
+        <p>Split the model into an assembly plus five subsystem files (hull, structure, propulsion, electronics, sensors) and ran a CAD check. It found two broken features and a bunch of wires floating in the air inside the drybox. Fixed the features, then rerouted every wire along the walls, tray and deck with tie mounts.</p>
+        <p>The check now comes back clean. The boat comes out around 5.2 kg with 25.3 mm of freeboard, and every printed part fits the printer.</p>
       </div>
     </li>
     <li>
       <time>nov 20 to 23, 2026</time>
       <div class="prose">
         <h2>styling and this site</h2>
-        <p>gave the hulls a sharper, more hydro shape, exported web models of every subsystem and built this site around them.</p>
+        <p>Gave the hulls a sharper, more hydro shape, exported web models of every subsystem and built this site around them.</p>
       </div>
     </li>
     <li class="next">
       <time>right now</time>
       <div class="prose">
         <h2>ordering parts and tweaking cad</h2>
-        <p>ordering the electronics and sensors off the parts list and still adjusting the cad as parts get locked in. once everything shows up, i wire it into the drybox and take naiad to the pool for its first salt plume test.</p>
+        <p>Ordering the electronics and sensors off the parts list and still adjusting the CAD as parts get locked in. Once everything shows up, I wire it into the drybox and take NAIAD to the pool for its first salt plume test.</p>
       </div>
     </li>
   </ol>
@@ -470,8 +467,8 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
     <img class="me" src="img/jase.jpg" alt="jase villaverde" width="720" height="720">
     <div class="prose">
       <h2>hey! i'm jase.</h2>
-      <p>i'm a senior in new jersey who likes building things that go in the water. when i was little i wanted to be a marine biologist, and these days i want to study mechanical engineering and robotics and end up working on autonomous underwater vehicles.</p>
-      <p>i'm the cad manager on frc team 1257, where i design our competition robot, and i'm president of my school's tsa chapter. i've interned at dectris usa and new jersey precision technologies, and when i'm not in cad i'm probably in the pool swimming the 200 and 500 free.</p>
+      <p>I'm a senior in New Jersey who likes building things that go in the water. When I was little I wanted to be a marine biologist, and these days I want to study mechanical engineering and robotics and end up working on autonomous underwater vehicles.</p>
+      <p>I'm the CAD manager on FRC Team 1257, where I design our competition robot, and I'm president of my school's TSA chapter. I've interned at DECTRIS USA and New Jersey Precision Technologies, and when I'm not in CAD I'm probably in the pool swimming the 200 and 500 free.</p>
       <ul class="facts">
         <li>frc 1257 · cad manager</li>
         <li>tsa · chapter president</li>
@@ -485,8 +482,8 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
     <h2>project agos</h2>
     <div class="prose">
       <figure class="agos-photo"><img width="1600" height="1067" src="img/agos.jpg" alt="project agos volunteers pulling trash and a rusted metal grate out of the woods" loading="lazy"><figcaption>a project agos cleanup at jc park, 2025</figcaption></figure>
-      <p>project agos is a youth environmental nonprofit i cofounded in union county, nj. we run waterway cleanups with the union county department of parks and recreation, five so far, whenever the weather and water let us.</p>
-      <p>before every cleanup someone has to walk the river to figure out where the trash is piling up and where it's coming from, and that scouting eats a lot of time. i built naiad to do that part for us. it drives the river, finds the hotspots and the source, and we show up already knowing where to work.</p>
+      <p>Project Agos is a youth environmental nonprofit I cofounded in Union County, NJ. We run waterway cleanups with the Union County Department of Parks and Recreation, five so far, whenever the weather and water let us.</p>
+      <p>Before every cleanup someone has to walk the river to figure out where the trash is piling up and where it's coming from, and that scouting eats a lot of time. I built NAIAD to do that part for us. It drives the river, finds the hotspots and the source, and we show up already knowing where to work.</p>
     </div>
   </section>
 
@@ -497,15 +494,14 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
 </div>
 
 <script>
-// one long page: naiad, research, build log, about stacked in order. the tab bar sticks to the top,
-// follows the section you're reading, and jumps to a section when tapped.
+// one page at a time: naiad, research, build log, about. you can only scroll within the page you're on.
+// the next button at the bottom of a page, or a tab up top, slides the page you asked for into view.
 (function () {
   const views = ['naiad', 'research', 'log', 'about'];
-  const secs = views.map(n => document.getElementById('v-' + n));
-  const bar = document.querySelector('.tabs');
+  const sec = n => document.getElementById('v-' + n);
   const pill = document.getElementById('pill');
   const still = matchMedia('(prefers-reduced-motion: reduce)');
-  let last = null, cur = null;
+  let last = null, cur = null, busy = false;
 
   function rectOf(a) { return { x: a.offsetLeft, y: a.offsetTop, w: a.offsetWidth, h: a.offsetHeight }; }
   function frame(r) { return { transform: 'translate(' + r.x + 'px,' + r.y + 'px)', width: r.w + 'px', height: r.h + 'px' }; }
@@ -524,58 +520,68 @@ figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 6p
     last = to;
   }
 
-  function setCurrent(v, animate) {
-    if (v === cur) return;
-    const first = cur === null;
-    cur = v; window.__view = v;
+  function mark(v, animate) {
+    window.__view = v;
     document.querySelectorAll('.tabs a.tab').forEach(a => {
       if (a.dataset.view === v) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
     document.title = v === 'naiad' ? 'NAIAD' : 'NAIAD · ' + (v === 'log' ? 'build log' : v);
-    movePill(animate && !first);
-    // keep the address in step without adding history entries; a subsystem link like #hull stays while on the boat
+    movePill(animate);
+    // keep the address in step; a subsystem link like #hull stays while on the boat
     const h = location.hash.slice(1);
     const keep = v === 'naiad' && (h === '' || (window.NAIAD_SUBS && window.NAIAD_SUBS[h]));
-    if (!first && !keep) { try { history.replaceState(null, '', v === 'naiad' ? location.pathname + location.search : '#' + v); } catch (e) {} }
+    if (!keep && h !== v) { try { history.replaceState(null, '', v === 'naiad' ? location.pathname + location.search : '#' + v); } catch (e) {} }
   }
 
-  // the section you're in is the last one whose top has passed a line a third of the way down the screen
-  let lockUntil = 0;   // after a tab tap, hold the pill on the target while the page glides there
-  function spy() {
-    if (performance.now() < lockUntil) return;
-    const line = bar.offsetHeight + window.innerHeight * 0.3;
-    let v = views[0];
-    secs.forEach((s, i) => { if (s.getBoundingClientRect().top <= line) v = views[i]; });
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) v = views[views.length - 1];
-    setCurrent(v, true);
+  function afterScroll(cb) {
+    let done = false;
+    const fin = () => { if (done) return; done = true; window.removeEventListener('scrollend', fin); cb(); };
+    window.addEventListener('scrollend', fin);
+    setTimeout(fin, 1100);   // for browsers without scrollend
   }
-  let queued = false;
-  window.addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; spy(); }); } }, { passive: true });
 
-  function go(v, smooth) {
-    const s = document.getElementById('v-' + v);
-    if (!s) return;
-    if (v === 'naiad') window.scrollTo({ top: 0, behavior: smooth && !still.matches ? 'smooth' : 'auto' });
-    else s.scrollIntoView({ behavior: smooth && !still.matches ? 'smooth' : 'auto', block: 'start' });
+  function go(v) {
+    if (busy || !views.includes(v)) return;
+    if (v === cur) { window.scrollTo({ top: 0, behavior: still.matches ? 'auto' : 'smooth' }); return; }
+    const prev = cur, from = prev && sec(prev), to = sec(v);
+    cur = v;
+    mark(v, prev !== null);
+    if (!from || still.matches) {
+      views.forEach(n => { sec(n).hidden = n !== v; });
+      window.scrollTo(0, 0);
+      return;
+    }
+    busy = true;
+    if (views.indexOf(v) > views.indexOf(prev)) {
+      // forward: open the next page right under this one, glide down to it, then drop the old page
+      const top0 = from.offsetTop;
+      to.hidden = false;
+      window.scrollTo({ top: to.offsetTop - top0, behavior: 'smooth' });
+      afterScroll(() => { from.hidden = true; window.scrollTo(0, 0); busy = false; });
+    } else {
+      // back: open the earlier page above this one without moving the screen, glide up to it, then drop the old page
+      const onScreen = from.getBoundingClientRect().top;
+      to.hidden = false;
+      window.scrollTo(0, from.getBoundingClientRect().top + scrollY - onScreen);
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        afterScroll(() => { from.hidden = true; busy = false; });
+      });
+    }
   }
+
   document.querySelectorAll('.tabs a, a.next-page').forEach(a => a.addEventListener('click', e => {
     const v = a.getAttribute('href').slice(1);
     if (!views.includes(v)) return;
     e.preventDefault();
-    setCurrent(v, true);
-    lockUntil = performance.now() + (still.matches ? 0 : 1200);
-    go(v, true);
+    go(v);
   }));
-  window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (views.includes(h)) go(h, true); });
-
-  window.addEventListener('scrollend', () => { lockUntil = 0; spy(); });
-  window.addEventListener('resize', () => { movePill(false); spy(); });
+  window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (views.includes(h)) go(h); });
+  window.addEventListener('resize', () => movePill(false));
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => movePill(false));
 
   const start = location.hash.slice(1);
-  if (views.includes(start) && start !== 'naiad') { go(start, false); requestAnimationFrame(() => go(start, false)); }
-  setCurrent(views.includes(start) ? start : 'naiad', false);
-  requestAnimationFrame(spy);
+  go(views.includes(start) ? start : 'naiad');
 })();
 </script>
 
@@ -585,43 +591,43 @@ window.NAIAD_SUBS = {
   all: {
     name: "the whole boat",
     text: [
-      "naiad is a twin hull catamaran built to trace river pollution back to where it starts. a camera spots floating trash and oil sheens, the probes read the water, and the boat keeps steering toward stronger readings until it reaches the outfall.",
-      "pick a subsystem below to pull it out of the model. everything else fades to glass so you can see how it sits inside the boat."
+      "NAIAD is a twin hull catamaran built to trace river pollution back to where it starts. A camera spots floating trash and oil sheens, the probes read the water, and the boat keeps steering toward stronger readings until it reaches the outfall.",
+      "Pick a subsystem below to pull it out of the model. Everything else fades to glass so you can see how it sits inside the boat."
     ]
   },
   hull: {
     name: "hull",
     text: [
-      "two slim hulls, each printed in four petg segments because the a1 mini bed is only 180 mm. the segments line up on 3 x 16 mm alignment pins and joint keys, get bonded with marine epoxy, then get brushed with xtc-3d to seal the layer lines.",
-      "outside each hull sits a three segment sponson filled with closed cell foam, which adds buoyancy and keeps the boat from rolling in current."
+      "Two slim hulls, each printed in four PETG segments because the A1 mini bed is only 180 mm. The segments line up on 3 x 16 mm alignment pins and joint keys, get bonded with marine epoxy, then get brushed with XTC-3D to seal the layer lines.",
+      "Outside each hull sits a three segment sponson filled with closed cell foam, which adds buoyancy and keeps the boat from rolling in current."
     ]
   },
   structure: {
     name: "structure",
     text: [
-      "the backbone is a 264 mm piece of 2020 aluminum t-slot at the bow. the hull saddles, the mast base and the probe boom brackets all bolt on with m5 screws into t-nuts, so nothing gets drilled and every part can slide to line up.",
-      "printed holders fore and aft cradle the drybox, and two skeleton deck caps close off the tops of the hulls."
+      "The backbone is a 264 mm piece of 2020 aluminum T-slot at the bow. The hull saddles, the mast base and the probe boom brackets all bolt on with M5 screws into T-nuts, so nothing gets drilled and every part can slide to line up.",
+      "Printed holders fore and aft cradle the drybox, and two skeleton deck caps close off the tops of the hulls."
     ]
   },
   propulsion: {
     name: "propulsion",
     text: [
-      "two bidirectional brushless thrusters hang under the hulls in printed petg mounts. the seat of each mount is cut from the hull shape itself, so it hugs the hull with a gap under 0.03 mm.",
-      "each thruster runs off a 30 a bidirectional esc and sits in a duct fairing. with two thrusters and no rudder, naiad turns by running one side faster than the other, and it has to outpace the river to make it upstream."
+      "Two bidirectional brushless thrusters hang under the hulls in printed PETG mounts. The seat of each mount is cut from the hull shape itself, so it hugs the hull with a gap under 0.03 mm.",
+      "Each thruster runs off a 30 A bidirectional ESC and sits in a duct fairing. With two thrusters and no rudder, NAIAD turns by running one side faster than the other, and it has to outpace the river to make it upstream."
     ]
   },
   electronics: {
     name: "electronics",
     text: [
-      "everything that has to stay dry lives in an ip67 clear lid drybox on two levels. the lower tray holds the 4s2p 18650 li-ion pack, both escs, the 30 a main fuse and the 5 v bec. the upper deck carries the matek h743 flight controller running ardupilot, a raspberry pi 5 for the camera model and logging, the elrs receiver and the arming plug.",
-      "wires leave through pg7 cable glands and bnc bulkheads, a leak sensor and silica gel guard the inside, and a separate backup tracker rides in its own sealed pod in case the main electronics ever go quiet."
+      "Everything that has to stay dry lives in an IP67 clear lid drybox on two levels. The lower tray holds the 4S2P 18650 Li-ion pack, both ESCs, the 30 A main fuse and the 5 V BEC. The upper deck carries the Matek H743 flight controller running ArduPilot, a Raspberry Pi 5 for the camera model and logging, the ELRS receiver and the arming plug.",
+      "Wires leave through PG7 cable glands and BNC bulkheads, a leak sensor and silica gel guard the inside, and a separate backup tracker rides in its own sealed pod in case the main electronics ever go quiet."
     ]
   },
   sensors: {
     name: "sensors",
     text: [
-      "a 16 mm carbon mast carries the gps and compass module, the telemetry antenna and the camera pod that looks for debris and oil sheens on the surface.",
-      "up front, a probe boom holds dfrobot probes for ph, dissolved oxygen, conductivity and water temperature, read through an ads1115 since the pi has no analog inputs. conductivity is the one naiad chases, because it reacts in about a second while ph and oxygen take up to a minute to settle."
+      "A 16 mm carbon mast carries the GPS and compass module, the telemetry antenna and the camera pod that looks for debris and oil sheens on the surface.",
+      "Up front, a probe boom holds DFRobot probes for pH, dissolved oxygen, conductivity and water temperature, read through an ADS1115 since the Pi has no analog inputs. Conductivity is the one NAIAD chases, because it reacts in about a second while pH and oxygen take up to a minute to settle."
     ]
   }
 };
