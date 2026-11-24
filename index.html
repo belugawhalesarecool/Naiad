@@ -50,7 +50,7 @@ body {
   padding-right: max(16px, env(safe-area-inset-right, 0px));
   padding-block: 28px 48px;
 }
-.wrap { max-width: 1080px; margin: 0 auto; display: grid; gap: 22px; }
+.wrap { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; }
 header { display: grid; gap: 6px; }
 .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--muted); }
 h1 {
@@ -62,7 +62,7 @@ h1 span { color: var(--river); }
 
 /* stage */
 .stage {
-  position: relative; width: 100%; height: clamp(380px, 68vh, 680px);
+  position: relative; width: 100%; height: clamp(380px, 68vh, 680px); overflow: hidden;
   touch-action: pan-y;   /* a vertical swipe scrolls the page, a sideways drag turns the boat */
 }
 .stage canvas { display: block; width: 100%; height: 100%; outline: none; }
@@ -157,7 +157,7 @@ footer { font: 400 12px var(--mono); color: var(--muted); }
 .tabs a.tab:hover { color: var(--ink); }
 .tabs a.tab[aria-current="page"] { color: var(--accent-ink); }
 .tabs a:focus-visible { outline: 2px solid var(--river); outline-offset: 2px; }
-.view { display: flex; flex-direction: column; gap: 22px;
+.view { display: flex; flex-direction: column; gap: 22px; min-width: 0;   /* keeps the boat page's sideways scrolling subsystem row from stretching the page past the screen on phones */
   min-height: calc(100svh - 64px); }   /* every page fills at least a screen */
 .view + .view { padding-top: 44px; }
 
